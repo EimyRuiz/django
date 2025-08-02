@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lista de Proyecto</title>
+</head>
+<body>
+    <h1>Proyecto</h1>
+    <a href="{% url 'crear proyecto'%}">Crear nuevo proyecto</a>
+    <ul>
+        {% for proyecto in proyectos %}
+        <li>
+            <strong>{{proyecto.titulo}}</strong> - {{proyecto.fecha}} <br>
+            {{proyecto.descripcion}} <br>
+            <a href="{% url 'editar proyecto' proyecto.id %}">Editar</a>
+            <a href="{% url 'eliminar proyecto' proyecto.id %}">Eliminar</a>
+        </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>
